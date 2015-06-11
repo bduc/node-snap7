@@ -46,6 +46,12 @@
             "./deps/snap7/src/lib/snap7_libmain.cpp"
         ],
         "conditions": [
+            ["OS=='mac'", {
+                "cflags_cc": ["-O3", "-fPIC", "-pedantic", "-fexceptions"],
+		'xcode_settings': {
+			'GCC_ENABLE_CPP_EXCEPTIONS': "YES"
+		}
+            }],
             ["OS=='linux'", {
                 "cflags_cc": ["-O3", "-fPIC", "-pedantic", "-fexceptions"]
             }],
@@ -55,7 +61,10 @@
                         "AdditionalOptions": ["/EHsc"]
                     }
                 }
-            }]
+            },
+	    {
+                "cflags_cc": ["-O3", "-fPIC", "-pedantic", "-fexceptions"]
+	    }]
         ]
     }]
 }
